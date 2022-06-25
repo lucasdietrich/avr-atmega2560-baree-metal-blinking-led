@@ -12,6 +12,9 @@ build/func.o: func.c build
 build/blinking.elf: build/main.o build/func.o
 	avr-gcc -o $@ -mmcu=atmega2560 -std=gnu11 -Wall -ffunction-sections -fdata-sections -Og -g -gdwarf-2 -DF_CPU=16000000L $^
 
+qemu: build/blinking.elf
+	qemu-system-avr -M mega2560 -bios $^ -s -S -nographic
+
 dis: build/main.o build/main.o build/func.o build/func.o build/blinking.elf
 	avr-objdump -d build/main.o > build/main.dis.asm
 	avr-objdump -S build/main.o > build/main.dis.src.asm

@@ -1,0 +1,19 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "(gdb) QEMU",
+			"type": "cppdbg",
+			"request": "launch",
+			"miDebuggerServerAddress": "127.0.0.1:1234",
+			"program": "${workspaceFolder}/build/blinking.elf",
+			"args": [],
+			"stopAtEntry": true,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"miDebuggerPath": "avr-gdb",
+			"MIMode": "gdb"
+		}
+	]
+}
